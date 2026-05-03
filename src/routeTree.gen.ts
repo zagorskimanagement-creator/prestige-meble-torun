@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProducenciRouteImport } from './routes/producenci'
+import { Route as ONasRouteImport } from './routes/o-nas'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as KolekcjeRouteImport } from './routes/kolekcje'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ProducenciRoute = ProducenciRouteImport.update({
+  id: '/producenci',
+  path: '/producenci',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ONasRoute = ONasRouteImport.update({
+  id: '/o-nas',
+  path: '/o-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KolekcjeRoute = KolekcjeRouteImport.update({
+  id: '/kolekcje',
+  path: '/kolekcje',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,72 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/kolekcje': typeof KolekcjeRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-nas': typeof ONasRoute
+  '/producenci': typeof ProducenciRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/kolekcje': typeof KolekcjeRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-nas': typeof ONasRoute
+  '/producenci': typeof ProducenciRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/kolekcje': typeof KolekcjeRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-nas': typeof ONasRoute
+  '/producenci': typeof ProducenciRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci'
+  id: '__root__' | '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  KolekcjeRoute: typeof KolekcjeRoute
+  KontaktRoute: typeof KontaktRoute
+  ONasRoute: typeof ONasRoute
+  ProducenciRoute: typeof ProducenciRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/producenci': {
+      id: '/producenci'
+      path: '/producenci'
+      fullPath: '/producenci'
+      preLoaderRoute: typeof ProducenciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/o-nas': {
+      id: '/o-nas'
+      path: '/o-nas'
+      fullPath: '/o-nas'
+      preLoaderRoute: typeof ONasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kolekcje': {
+      id: '/kolekcje'
+      path: '/kolekcje'
+      fullPath: '/kolekcje'
+      preLoaderRoute: typeof KolekcjeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,16 +121,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  KolekcjeRoute: KolekcjeRoute,
+  KontaktRoute: KontaktRoute,
+  ONasRoute: ONasRoute,
+  ProducenciRoute: ProducenciRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
