@@ -1,11 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-home.jpg";
-import col1 from "@/assets/collection-1.jpg";
-import col2 from "@/assets/collection-2.jpg";
-import col3 from "@/assets/collection-3.jpg";
-import col4 from "@/assets/collection-4.jpg";
+import heroImg from "@/assets/meble krysiak provance - kolekcja.jpg";
+import krysiakImg from "@/assets/meble krysiak cantiero - orzech kolekcja.jpg";
+import unimebleImg from "@/assets/unimeble boni kolekcja.jpg";
+import zakorImg from "@/assets/zakor ora kolekcja.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,10 +17,9 @@ export const Route = createFileRoute("/")({
 });
 
 const collections = [
-  { name: "Verdi", producer: "Gala Collezione", image: col1 },
-  { name: "Elio", producer: "Sweet Sit", image: col2 },
-  { name: "Belluno", producer: "Gala Collezione", image: col3 },
-  { name: "Loggia", producer: "Gala Collezione", image: col4 },
+  { name: "Krysiak", producer: "Krysiak Meble", image: krysiakImg },
+  { name: "Unimeble", producer: "Unimeble", image: unimebleImg },
+  { name: "Zakor", producer: "Zakor", image: zakorImg },
 ];
 
 const producers = [
@@ -76,10 +74,10 @@ function Index() {
             </p>
           </FadeIn>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
             {collections.map((c, i) => (
               <FadeIn key={c.name} delay={i * 0.1}>
-                <div className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
+                <div className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 max-w-[360px] w-full">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={c.image}
@@ -116,7 +114,7 @@ function Index() {
             <div className="flex flex-col md:flex-row items-center gap-10">
               <div className="md:w-1/2">
                 <img
-                  src={col3}
+                  src={zakorImg}
                   alt="Salon Prestige Meble Toruń"
                   className="rounded-xl shadow-lg w-full aspect-[4/3] object-cover"
                   loading="lazy"

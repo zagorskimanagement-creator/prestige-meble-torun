@@ -4,49 +4,147 @@ import { FadeIn } from "@/components/FadeIn";
 import { PageHero } from "@/components/PageHero";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
-import col1 from "@/assets/collection-1.jpg";
-import col2 from "@/assets/collection-2.jpg";
-import col3 from "@/assets/collection-3.jpg";
-import col4 from "@/assets/collection-4.jpg";
-import col5 from "@/assets/collection-5.jpg";
-import col6 from "@/assets/collection-6.jpg";
-import col7 from "@/assets/collection-7.jpg";
-import col8 from "@/assets/collection-8.jpg";
+import col1 from "@/assets/meble krysiak cantiero - orzech kolekcja.jpg";
+import col2 from "@/assets/meble krysiak granada - antracyt kolekcja.jpg";
+import col3 from "@/assets/meble krysiak granada - szarosc pustyni kolekcja.jpg";
+import col4 from "@/assets/meble krysiak monaco - kolekcja.jpg";
+import col5 from "@/assets/meble krysiak provance - kolekcja.jpg";
+import col6 from "@/assets/meble krysiak verano - kolekcja.jpg";
+import col7 from "@/assets/unimeble boni kolekcja.jpg";
+import col8 from "@/assets/unimeble boretto kolekcja1.jpg";
+import col9 from "@/assets/unimeble boretto kolekcja1.webp";
+import col10 from "@/assets/unimeble boretto kolekcja2.jpg";
+import col11 from "@/assets/unimeble lagossa kolekcja.jpg";
+import col12 from "@/assets/unimeble marino kolekcje.jpg";
+import col13 from "@/assets/unimeble max XIX kolekcja.jpg";
+import col14 from "@/assets/unimeble mobilo kolekcja.jpg";
+import col15 from "@/assets/unimeble oliwia e kolekcja.jpg";
+import col16 from "@/assets/unimeble verdi kolekcja.webp";
+import col17 from "@/assets/zakor limera kolekcja.jpg";
+import col18 from "@/assets/zakor malaren kolekcja.jpg";
+import col19 from "@/assets/zakor ora kolekcja.jpg";
 
 export const Route = createFileRoute("/kolekcje")({
   head: () => ({
     meta: [
       { title: "Kolekcje — Prestige Meble Toruń" },
-      { name: "description", content: "Odkryj nasze kolekcje mebli premium. Zestawy wypoczynkowe, narożniki, fotele od najlepszych producentów." },
+      {
+        name: "description",
+        content:
+          "Odkryj nasze kolekcje mebli premium. Zestawy wypoczynkowe, narożniki, fotele od najlepszych producentów.",
+      },
       { property: "og:title", content: "Kolekcje — Prestige Meble Toruń" },
     ],
   }),
   component: KolekcjePage,
 });
 
-const categories = ["Wszystkie", "Zestawy wypoczynkowe", "Narożniki", "Fotele", "Stoły i krzesła"];
+const categories = ["Wszystkie", "Krysiak", "Unimeble", "Zakor"];
+
+const krysiakGallery = [col1, col2, col3, col4, col5, col6];
+const unimebleGallery = [col7, col8, col9, col10, col11, col12, col13, col14, col15, col16];
+const zakorGallery = [col17, col18, col19];
 
 const collections = [
-  { name: "Verdi", producer: "Gala Collezione", category: "Zestawy wypoczynkowe", desc: "Klasyczna elegancja w nowoczesnym wydaniu. Dostępna w wielu tkaninach.", image: col1 },
-  { name: "Elio", producer: "Sweet Sit", category: "Zestawy wypoczynkowe", desc: "Komfort i styl w jednym — idealna do każdego salonu.", image: col2 },
-  { name: "Belluno", producer: "Gala Collezione", category: "Narożniki", desc: "Ponadczasowy design inspirowany włoską architekturą.", image: col3 },
-  { name: "Loggia", producer: "Gala Collezione", category: "Narożniki", desc: "Przestronny narożnik z funkcją spania i pojemnikiem.", image: col4 },
-  { name: "Vigo", producer: "Aris Concept", category: "Fotele", desc: "Nowoczesny fotel relaksacyjny z mechanizmem odchylania.", image: col5 },
-  { name: "Modena", producer: "Unimebel", category: "Narożniki", desc: "Minimalistyczny narożnik w skandynawskim stylu.", image: col6 },
-  { name: "Toscana", producer: "Skalik", category: "Stoły i krzesła", desc: "Elegancki stół z litego drewna dębowego z kompletem krzeseł.", image: col7 },
-  { name: "Palazzo", producer: "Krysiak Meble", category: "Zestawy wypoczynkowe", desc: "Luksusowy zestaw wypoczynkowy ze skóry naturalnej.", image: col8 },
+  {
+    name: "Krysiak",
+    brand: "Krysiak",
+    desc: "Polskie meble tapicerowane szyte na miarę twoich potrzeb.",
+    image: col1,
+    gallery: krysiakGallery,
+  },
+  {
+    name: "Unimeble",
+    brand: "Unimeble",
+    desc: "Solidne meble tapicerowane z wieloletnią tradycją.",
+    image: col7,
+    gallery: unimebleGallery,
+  },
+  {
+    name: "Zakor",
+    brand: "Zakor",
+    desc: "Meble do jadalni i salonu łączące styl z trwałością.",
+    image: col17,
+    gallery: zakorGallery,
+  },
+
+  
+ 
+ 
 ];
 
 function KolekcjePage() {
   const [activeCategory, setActiveCategory] = useState("Wszystkie");
+  const [selectedCollection, setSelectedCollection] = useState<string | null>(null);
 
-  const filtered = activeCategory === "Wszystkie"
-    ? collections
-    : collections.filter((c) => c.category === activeCategory);
+  const selected = selectedCollection
+    ? collections.find((c) => c.name === selectedCollection) ?? null
+    : null;
+
+  const filtered =
+    activeCategory === "Wszystkie"
+      ? collections
+      : collections.filter((c) => c.brand === activeCategory);
+
+  if (selected) {
+    return (
+      <>
+        <PageHero
+          title={selected.name}
+          subtitle={`Galeria kolekcji ${selected.name}`}
+        >
+          <Breadcrumb
+            items={[
+              { label: "Strona główna", to: "/" },
+              { label: "Kolekcje", to: "/kolekcje" },
+              { label: selected.name },
+            ]}
+          />
+        </PageHero>
+
+        <section className="py-16 px-4 bg-cream">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
+              <Button
+                variant="secondary"
+                size="default"
+                onClick={() => setSelectedCollection(null)}
+              >
+                Powrót do kolekcji
+              </Button>
+              <div className="text-muted-foreground">
+                {selected.producer} · {selected.category}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              {selected.gallery.map((src, index) => (
+                <FadeIn key={index} delay={index * 0.05}>
+                  <div className="group overflow-hidden rounded-3xl bg-card shadow-md transition-all duration-500 hover:shadow-xl">
+                    <img
+                      src={src}
+                      alt={`${selected.name} ${index + 1}`}
+                      className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      width={800}
+                      height={600}
+                    />
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+      </>
+    );
+  }
 
   return (
     <>
-      <PageHero title="Nasze Kolekcje" subtitle="Odkryj wyjątkowe zestawy wypoczynkowe najlepszych producentów">
+      <PageHero
+        title="Nasze Kolekcje"
+        subtitle="Odkryj wyjątkowe zestawy wypoczynkowe najlepszych producentów"
+      >
         <Breadcrumb items={[{ label: "Strona główna", to: "/" }, { label: "Kolekcje" }]} />
       </PageHero>
 
@@ -73,8 +171,11 @@ function KolekcjePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {filtered.map((c, i) => (
               <FadeIn key={c.name} delay={i * 0.08}>
-                <div className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
-                  <div className="aspect-[16/10] overflow-hidden">
+                <div
+                  className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer"
+                  onClick={() => setSelectedCollection(c.name)}
+                >
+                  <div className="aspect-16/10 overflow-hidden">
                     <img
                       src={c.image}
                       alt={c.name}
@@ -95,9 +196,18 @@ function KolekcjePage() {
                     </div>
                     <h3 className="font-heading text-2xl font-bold text-navy">{c.name}</h3>
                     <p className="mt-2 text-muted-foreground text-sm">{c.desc}</p>
-                    <Button variant="gold" size="default" className="mt-4" asChild>
-                      <Link to="/kontakt">Zapytaj o produkt</Link>
-                    </Button>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      <Button
+                        variant="secondary"
+                        size="default"
+                        onClick={() => setSelectedCollection(c.name)}
+                      >
+                        Zobacz kolekcję
+                      </Button>
+                      <Button variant="gold" size="default" asChild>
+                        <Link to="/kontakt">Zapytaj o produkt</Link>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </FadeIn>
@@ -109,7 +219,9 @@ function KolekcjePage() {
               <h3 className="font-heading text-2xl font-bold text-cream">
                 Nie znalazłeś czegoś dla siebie?
               </h3>
-              <p className="mt-2 text-cream/60">Skontaktuj się z nami — pomożemy Ci znaleźć idealne meble!</p>
+              <p className="mt-2 text-cream/60">
+                Skontaktuj się z nami — pomożemy Ci znaleźć idealne meble!
+              </p>
               <Button variant="gold" size="lg" className="mt-6" asChild>
                 <Link to="/kontakt">Skontaktuj się z nami</Link>
               </Button>

@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHero } from "@/components/PageHero";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
+import { MapPin, Phone, Clock } from 'lucide-react';
 
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
@@ -16,13 +17,19 @@ export const Route = createFileRoute("/kontakt")({
   component: KontaktPage,
 });
 
+const contactInfo = [
+  { icon: <MapPin className="w-5 h-5 text-black" />, title: "Adres", desc: "Galeria Wnętrz AMC\nul. Joachima Lelewela 33\n87-100 Toruń" },
+  { icon: <Phone className="w-5 h-5 text-black" />, title: "Telefon", desc: "697 705 729" },
+  { icon: <Clock className="w-5 h-5 text-black" />, title: "Godziny otwarcia", desc: "Poniedziałek – Piątek: 10:00 – 18:00\nSobota: 10:00 – 15:00\nNiedziela: Nieczynne" },
+];
+
 function KontaktPage() {
   const [formData, setFormData] = useState({
     name: "", email: "", phone: "", subject: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
   };
@@ -42,65 +49,33 @@ function KontaktPage() {
             {/* Contact Info */}
             <FadeIn>
               <div className="space-y-6">
-                <div className="bg-card rounded-xl p-6 shadow-md">
+              {contactInfo.map((item) => (
+                <div key={item.title} className="bg-card rounded-xl p-6 shadow-md">
                   <div className="flex items-start gap-4">
-                    <span className="text-2xl">📍</span>
+                    <div className="mt-1">{item.icon}</div>
                     <div>
-                      <h3 className="font-heading font-semibold text-navy">Adres</h3>
-                      <p className="text-muted-foreground text-sm mt-1">
-                        Galeria Wnętrz AMC<br />
-                        ul. Joachima Lelewela 33<br />
-                        87-100 Toruń
-                      </p>
+                      <h3 className="font-heading font-semibold text-navy">{item.title}</h3>
+                      {item.title === "Telefon" ? (
+                        <a href="tel:+48697705729" className="text-gold font-semibold text-sm mt-1 block hover:text-navy transition-colors">
+                          {item.desc}
+                        </a>
+                      ) : (
+                        <p className="text-muted-foreground text-sm mt-1 whitespace-pre-line">
+                          {item.desc}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
-
-                <div className="bg-card rounded-xl p-6 shadow-md">
-                  <div className="flex items-start gap-4">
-                    <span className="text-2xl">📞</span>
-                    <div>
-                      <h3 className="font-heading font-semibold text-navy">Telefon</h3>
-                      <a href="tel:+48697705729" className="text-gold font-semibold text-sm mt-1 block hover:text-navy transition-colors">
-                        697 705 729
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-card rounded-xl p-6 shadow-md">
-                  <div className="flex items-start gap-4">
-                    <span className="text-2xl">🌐</span>
-                    <div>
-                      <h3 className="font-heading font-semibold text-navy">WWW</h3>
-                      <a href="https://prestigemeble-torun.pl" target="_blank" rel="noopener noreferrer" className="text-gold font-semibold text-sm mt-1 block hover:text-navy transition-colors">
-                        prestigemeble-torun.pl
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-card rounded-xl p-6 shadow-md">
-                  <div className="flex items-start gap-4">
-                    <span className="text-2xl">🕐</span>
-                    <div>
-                      <h3 className="font-heading font-semibold text-navy">Godziny otwarcia</h3>
-                      <div className="text-muted-foreground text-sm mt-1 space-y-0.5">
-                        <p>Poniedziałek – Piątek: 10:00 – 18:00</p>
-                        <p>Sobota: 10:00 – 15:00</p>
-                        <p>Niedziela: Nieczynne</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
+            </div>
             </FadeIn>
 
             {/* Map */}
             <FadeIn delay={0.2}>
               <div className="rounded-xl overflow-hidden shadow-md h-full min-h-[400px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2404.8!2d18.6056!3d53.0138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sGaleria+Wn%C4%99trz+AMC+Joachima+Lelewela+33+Toru%C5%84!5e0!3m2!1spl!2spl!4v1700000000000"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9599.05292300931!2d18.6068876778101!3d53.02461913029623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4703349a6c377f8f%3A0x2205f45c4068d696!2sSalon%20Premium%20Prestige%20Meble!5e0!3m2!1spl!2spl!4v1780157494398!5m2!1spl!2spl"
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: "400px" }}

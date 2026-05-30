@@ -38,7 +38,7 @@ export function Footer() {
               <p>Niedziela: Nieczynne</p>
             </div>
             <a href="tel:+48697705729" className="inline-block mt-4 text-gold font-semibold text-sm hover:text-gold-light transition-colors">
-              📞 697 705 729
+              697 705 729
             </a>
           </div>
 

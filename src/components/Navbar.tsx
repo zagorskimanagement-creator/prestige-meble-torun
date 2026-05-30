@@ -90,7 +90,7 @@ export function Navbar() {
               href="tel:+48697705729"
               className="block px-4 py-3 text-gold font-semibold text-sm"
             >
-              📞 697 705 729
+              697 705 729
             </a>
           </div>
         </div>

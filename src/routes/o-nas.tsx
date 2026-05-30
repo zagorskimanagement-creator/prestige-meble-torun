@@ -3,13 +3,14 @@ import { FadeIn } from "@/components/FadeIn";
 import { PageHero } from "@/components/PageHero";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
-import showroomImg from "@/assets/showroom-about.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import col1 from "@/assets/collection-1.jpg";
-import col2 from "@/assets/collection-2.jpg";
-import col3 from "@/assets/collection-3.jpg";
-import col4 from "@/assets/collection-4.jpg";
+import { Gem, Handshake, Briefcase } from 'lucide-react';
+import showroomImg from "@/assets/meble krysiak provance - kolekcja.jpg";
+import gallery1 from "@/assets/meble krysiak verano - kolekcja.jpg";
+import gallery2 from "@/assets/unimeble boni kolekcja.jpg";
+import col1 from "@/assets/unimeble boretto kolekcja1.jpg";
+import col2 from "@/assets/unimeble boretto kolekcja2.jpg";
+import col3 from "@/assets/unimeble verdi kolekcja.webp";
+import col4 from "@/assets/zakor ora kolekcja.jpg";
 
 export const Route = createFileRoute("/o-nas")({
   head: () => ({
@@ -28,10 +29,22 @@ const producers = [
   "Manufaktura Jasienica", "Paged Meble", "Fameg", "Ortus Furniture",
 ];
 
-const values = [
-  { icon: "🛋️", title: "Jakość Premium", desc: "Współpracujemy wyłącznie ze sprawdzonymi producentami o ugruntowanej pozycji na rynku" },
-  { icon: "🎨", title: "Indywidualne doradztwo", desc: "Każdy klient jest dla nas wyjątkowy. Pomagamy dobrać meble do każdego wnętrza i budżetu" },
-  { icon: "🚚", title: "Profesjonalna obsługa", desc: "Dbamy o Ciebie od pierwszej wizyty w salonie aż po dostawę i montaż" },
+const features = [
+  {
+    icon: <Gem className="w-6 h-6 text-gold" />,
+    title: "Jakość Premium",
+    
+  },
+  {
+    icon: <Handshake className="w-6 h-6 text-gold" />,
+    title: "Indywidualne doradztwo",
+    
+  },
+  {
+    icon: <Briefcase className="w-6 h-6 text-gold" />,
+    title: "Profesjonalna obsługa",
+    
+  },
 ];
 
 const galleryImages = [gallery1, gallery2, col1, col2, col3, col4];
@@ -69,12 +82,14 @@ function ONasPage() {
       <section className="py-20 px-4 bg-cream-dark">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((v, i) => (
-              <FadeIn key={v.title} delay={i * 0.15}>
+            {features.map((feature, i) => (
+              <FadeIn key={feature.title} delay={i * 0.15}>
                 <div className="bg-card rounded-xl p-8 text-center shadow-md hover:shadow-xl transition-all duration-500 h-full">
-                  <span className="text-5xl">{v.icon}</span>
-                  <h3 className="font-heading text-xl font-bold text-navy mt-5">{v.title}</h3>
-                  <p className="mt-3 text-muted-foreground text-sm leading-relaxed">{v.desc}</p>
+                  <div className="mx-auto inline-flex items-center justify-center rounded-full bg-navy/5 p-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="font-heading text-xl font-bold text-navy mt-5">{feature.title}</h3>
+                  <p className="mt-3 text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
                 </div>
               </FadeIn>
             ))}
