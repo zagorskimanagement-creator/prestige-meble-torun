@@ -1,11 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/meble krysiak provance - kolekcja.jpg";
-import krysiakImg from "@/assets/meble krysiak cantiero - orzech kolekcja.jpg";
-import unimebleImg from "@/assets/unimeble boni kolekcja.jpg";
-import zakorImg from "@/assets/zakor ora kolekcja.jpg";
-
+import heroImg from "@/assets/meble-krysiak-provance-kolekcja.jpg";
+import krysiakImg from "@/assets/meble-krysiak-cantiero-orzech-kolekcja.jpg";
+import unimebleImg from "@/assets/unimeble-boni-kolekcja.jpg";
+import zakorImg from "@/assets/zakor-ora-kolekcja.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
