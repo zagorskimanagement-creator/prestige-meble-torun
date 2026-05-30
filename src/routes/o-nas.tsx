@@ -4,14 +4,13 @@ import { PageHero } from "@/components/PageHero";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Gem, Handshake, Briefcase } from 'lucide-react';
-import showroomImg from "@/assets/meble krysiak provance - kolekcja.jpg";
-import gallery1 from "@/assets/meble krysiak verano - kolekcja.jpg";
-import gallery2 from "@/assets/unimeble boni kolekcja.jpg";
-import col1 from "@/assets/unimeble boretto kolekcja1.jpg";
-import col2 from "@/assets/unimeble boretto kolekcja2.jpg";
-import col3 from "@/assets/unimeble verdi kolekcja.webp";
-import col4 from "@/assets/zakor ora kolekcja.jpg";
-
+import showroomImg from "@/assets/meble-krysiak-provance-kolekcja.jpg";
+import gallery1 from "@/assets/meble-krysiak-verano-kolekcja.jpg";
+import gallery2 from "@/assets/unimeble-boni-kolekcja.jpg";
+import col1 from "@/assets/unimeble-boretto-kolekcja1.jpg";
+import col2 from "@/assets/unimeble-boretto-kolekcja2.jpg";
+import col3 from "@/assets/unimeble-verdi-kolekcja.webp";
+import col4 from "@/assets/zakor-ora-kolekcja.jpg";
 export const Route = createFileRoute("/o-nas")({
   head: () => ({
     meta: [
