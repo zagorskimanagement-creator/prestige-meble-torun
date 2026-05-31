@@ -1,4 +1,5 @@
 {
+  "outputDirectory": "dist/client",
   "installCommand": "bun install",
   "buildCommand": "bun run build",
   "rewrites": [
