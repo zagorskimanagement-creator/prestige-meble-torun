@@ -1,7 +1,7 @@
 {
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "installCommand": "bun install",
+  "buildCommand": "bun run build",
+  "outputDirectory": ".output/public",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
