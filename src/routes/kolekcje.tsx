@@ -23,6 +23,17 @@ import col16 from "@/assets/unimeble-verdi-kolekcja.webp";
 import col17 from "@/assets/zakor-limera-kolekcja.jpg";
 import col18 from "@/assets/zakor-malaren-kolekcja.jpg";
 import col19 from "@/assets/zakor-ora-kolekcja.jpg";
+import fameg1 from "@/assets/fameg-nord-kolekcja.jpg";
+import fameg2 from "@/assets/fameg-riso-kolekcja.jpg";
+import fameg3 from "@/assets/fameg-finn-kolekcja.jpg";
+import gala1 from "@/assets/gala-karato-kolekcja.jpg";
+import gala2 from "@/assets/gala-loggia-kolekcja.jpg";
+import gala3 from "@/assets/gala-lorens-kolekcja.jpg";
+import gala4 from "@/assets/gala-look-kolekcja.jpg";
+import sweet1 from "@/assets/sweetsit-ema-kolekcja.jpg";
+import sweet2 from "@/assets/sweetsit-cloud-kolekcja.jpg";
+import sweet3 from "@/assets/sweetsit-comfy-kolekcja.jpg";
+import sweet4 from "@/assets/sweetsit-bergen-kolekcja.jpg";
 
 export const Route = createFileRoute("/kolekcje")({
   head: () => ({
@@ -39,11 +50,14 @@ export const Route = createFileRoute("/kolekcje")({
   component: KolekcjePage,
 });
 
-const categories = ["Wszystkie", "Krysiak", "Unimeble", "Zakor"];
+const categories = ["Wszystkie", "Krysiak", "Unimeble", "Zakor", "Fameg", "Gala Collezione", "Sweet Sit"];
 
 const krysiakGallery = [col1, col2, col3, col4, col5, col6];
 const unimebleGallery = [col7, col8, col9, col10, col11, col12, col13, col14, col15, col16];
 const zakorGallery = [col17, col18, col19];
+const famegGallery = [fameg1, fameg2, fameg3];
+const galaGallery = [gala1, gala2, gala3, gala4];
+const sweetGallery = [sweet1, sweet2, sweet3, sweet4];
 
 const collections = [
   {
@@ -67,10 +81,27 @@ const collections = [
     image: col17,
     gallery: zakorGallery,
   },
-
-  
- 
- 
+  {
+    name: "Fameg",
+    brand: "Fameg",
+    desc: "Krzesła i stoły jadalniane z polskiego drewna — ponadczasowy design i najwyższa jakość wykonania.",
+    image: fameg1,
+    gallery: famegGallery,
+  },
+  {
+    name: "Gala Collezione",
+    brand: "Gala Collezione",
+    desc: "Systemy modułowe i sofy najwyższej klasy — swoboda aranżacji i włoski styl.",
+    image: gala1,
+    gallery: galaGallery,
+  },
+  {
+    name: "Sweet Sit",
+    brand: "Sweet Sit",
+    desc: "Narożniki i sofy z charakterem — komfort i styl dopasowane do każdego wnętrza.",
+    image: sweet1,
+    gallery: sweetGallery,
+  },
 ];
 
 function KolekcjePage() {
