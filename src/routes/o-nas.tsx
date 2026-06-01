@@ -18,9 +18,8 @@ export const Route = createFileRoute("/o-nas")({
 });
 
 const producers = [
-  "Gala Collezione", "Sweet Sit", "Aris Concept", "Unimebel",
-  "Skalik", "Zakor", "Krysiak Meble", "Swarzędz Szymański",
-  "Manufaktura Jasienica", "Paged Meble", "Fameg", "Ortus Furniture",
+  "Krysiak Meble", "Zakor", "Unimebel", "Fameg",
+  "Manufaktura Jasienica", "Paged Meble", "Sweet Sit", "Gala Collezione",
 ];
 
 const features = [

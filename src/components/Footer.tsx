@@ -2,18 +2,14 @@ import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
 
 const producers = [
-  { name: "Gala Collezione", url: "https://www.galacollezione.com" },
-  { name: "Sweet Sit", url: "https://www.sweetsit.pl" },
-  { name: "Aris Concept", url: "https://www.arismeble.pl" },
-  { name: "Unimebel", url: "https://www.unimebel.pl" },
-  { name: "Skalik", url: "https://www.skalik.pl" },
-  { name: "Zakor", url: "https://www.zakor.pl" },
   { name: "Krysiak Meble", url: "https://www.meblekrysiak.pl" },
-  { name: "Swarzędz Szymański", url: "https://www.meble-rs.pl" },
+  { name: "Zakor", url: "https://www.zakor.pl" },
+  { name: "Unimebel", url: "https://www.unimebel.pl" },
+  { name: "Fameg", url: "https://www.fameg.pl" },
   { name: "Manufaktura Jasienica", url: "https://www.manufakturajasienica.pl" },
   { name: "Paged Meble", url: "https://www.paged.pl" },
-  { name: "Fameg", url: "https://www.fameg.pl" },
-  { name: "Ortus Furniture", url: "https://www.ortusfurniture.eu" },
+  { name: "Sweet Sit", url: "https://www.sweetsit.pl" },
+  { name: "Gala Collezione", url: "https://www.galacollezione.com" },
 ];
 
 export function Footer() {
