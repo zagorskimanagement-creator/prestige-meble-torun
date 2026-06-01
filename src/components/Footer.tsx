@@ -30,7 +30,7 @@ export function Footer() {
             </address>
             <div className="mt-4 text-cream/70 text-sm leading-relaxed">
               <p>Pon – Pt: 10:00 – 20:00</p>
-              <p>Sobota: 10:00 – 15:00</p>
+              <p>Sobota: 10:00 – 20:00</p>
               <p>Niedziela: 10:00 – 16:00</p>
             </div>
             <a href="tel:+48697705729" className="inline-block mt-4 text-gold font-semibold text-sm hover:text-gold-light transition-colors">
