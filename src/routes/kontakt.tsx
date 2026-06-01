@@ -18,7 +18,7 @@ const FORMSPREE_ID = "YOUR_FORM_ID";
 const contactInfo = [
   { icon: <MapPin className="w-5 h-5 text-black" />, title: "Adres", desc: "Galeria Wnętrz AMC\nul. Joachima Lelewela 33\n87-100 Toruń" },
   { icon: <Phone className="w-5 h-5 text-black" />, title: "Telefon", desc: "697 705 729" },
-  { icon: <Clock className="w-5 h-5 text-black" />, title: "Godziny otwarcia", desc: "Poniedziałek – Piątek: 10:00 – 20:00\nSobota: 10:00 – 15:00\nNiedziela: 10:00 – 16:00" },
+  { icon: <Clock className="w-5 h-5 text-black" />, title: "Godziny otwarcia", desc: "Poniedziałek – Piątek: 10:00 – 20:00\nSobota: 10:00 – 20:00\nNiedziela: 10:00 – 16:00" },
 ];
 
 function KontaktPage() {
