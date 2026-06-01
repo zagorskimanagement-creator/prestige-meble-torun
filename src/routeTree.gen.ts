@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PolitykaPrywatnosciRouteImport } from './routes/polityka-prywatnosci'
 import { Route as ProducenciRouteImport } from './routes/producenci'
 import { Route as ONasRouteImport } from './routes/o-nas'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as KolekcjeRouteImport } from './routes/kolekcje'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PolitykaPrywatnosciRoute = PolitykaPrywatnosciRouteImport.update({
+  id: '/polityka-prywatnosci',
+  path: '/polityka-prywatnosci',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProducenciRoute = ProducenciRouteImport.update({
   id: '/producenci',
   path: '/producenci',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/kontakt': typeof KontaktRoute
   '/o-nas': typeof ONasRoute
   '/producenci': typeof ProducenciRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/kontakt': typeof KontaktRoute
   '/o-nas': typeof ONasRoute
   '/producenci': typeof ProducenciRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,14 @@ export interface FileRoutesById {
   '/kontakt': typeof KontaktRoute
   '/o-nas': typeof ONasRoute
   '/producenci': typeof ProducenciRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci'
+  fullPaths: '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci' | '/polityka-prywatnosci'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci'
-  id: '__root__' | '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci'
+  to: '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci' | '/polityka-prywatnosci'
+  id: '__root__' | '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci' | '/polityka-prywatnosci'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,10 +86,18 @@ export interface RootRouteChildren {
   KontaktRoute: typeof KontaktRoute
   ONasRoute: typeof ONasRoute
   ProducenciRoute: typeof ProducenciRoute
+  PolitykaPrywatnosciRoute: typeof PolitykaPrywatnosciRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/polityka-prywatnosci': {
+      id: '/polityka-prywatnosci'
+      path: '/polityka-prywatnosci'
+      fullPath: '/polityka-prywatnosci'
+      preLoaderRoute: typeof PolitykaPrywatnosciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/producenci': {
       id: '/producenci'
       path: '/producenci'
@@ -125,8 +142,8 @@ const rootRouteChildren: RootRouteChildren = {
   KontaktRoute: KontaktRoute,
   ONasRoute: ONasRoute,
   ProducenciRoute: ProducenciRoute,
+  PolitykaPrywatnosciRoute: PolitykaPrywatnosciRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-

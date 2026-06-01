@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { PageHero } from "@/components/PageHero";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/useSEO";
 import col1 from "@/assets/meble-krysiak-cantiero-orzech-kolekcja.jpg";
 import col2 from "@/assets/meble-krysiak-granada-antracyt-kolekcja.jpg";
 import col3 from "@/assets/meble-krysiak-granada-szarosc-pustyni-kolekcja.jpg";
@@ -36,17 +37,6 @@ import sweet3 from "@/assets/sweetsit-comfy-kolekcja.jpg";
 import sweet4 from "@/assets/sweetsit-bergen-kolekcja.jpg";
 
 export const Route = createFileRoute("/kolekcje")({
-  head: () => ({
-    meta: [
-      { title: "Kolekcje — Prestige Meble Toruń" },
-      {
-        name: "description",
-        content:
-          "Odkryj nasze kolekcje mebli premium. Zestawy wypoczynkowe, narożniki, fotele od najlepszych producentów.",
-      },
-      { property: "og:title", content: "Kolekcje — Prestige Meble Toruń" },
-    ],
-  }),
   component: KolekcjePage,
 });
 
@@ -105,6 +95,11 @@ const collections = [
 ];
 
 function KolekcjePage() {
+  useSEO({
+    title: "Kolekcje — Prestige Meble Toruń",
+    description: "Odkryj nasze kolekcje mebli premium: Krysiak, Unimeble, Zakor, Fameg, Gala Collezione, Sweet Sit. Salon meblowy Toruń.",
+  });
+
   const [activeCategory, setActiveCategory] = useState("Wszystkie");
   const [selectedCollection, setSelectedCollection] = useState<string | null>(null);
 
@@ -141,10 +136,10 @@ function KolekcjePage() {
                 size="default"
                 onClick={() => setSelectedCollection(null)}
               >
-                Powrót do kolekcji
+                ← Powrót do kolekcji
               </Button>
-              <div className="text-muted-foreground">
-                {selected.producer} · {selected.category}
+              <div className="text-muted-foreground text-sm">
+                {selected.brand} · {selected.desc}
               </div>
             </div>
 
@@ -154,7 +149,7 @@ function KolekcjePage() {
                   <div className="group overflow-hidden rounded-3xl bg-card shadow-md transition-all duration-500 hover:shadow-xl">
                     <img
                       src={src}
-                      alt={`${selected.name} ${index + 1}`}
+                      alt={`${selected.name} — kolekcja mebli ${index + 1}`}
                       className="h-80 w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                       width={800}
@@ -163,6 +158,12 @@ function KolekcjePage() {
                   </div>
                 </FadeIn>
               ))}
+            </div>
+
+            <div className="mt-10 text-center">
+              <Button variant="gold" size="lg" asChild>
+                <Link to="/kontakt">Zapytaj o kolekcję {selected.name}</Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -206,36 +207,31 @@ function KolekcjePage() {
                   className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer"
                   onClick={() => setSelectedCollection(c.name)}
                 >
-                  <div className="aspect-16/10 overflow-hidden">
+                  <div className="aspect-video overflow-hidden">
                     <img
                       src={c.image}
-                      alt={c.name}
+                      alt={`Kolekcja ${c.name} — meble ${c.brand}`}
                       className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                       width={800}
-                      height={600}
+                      height={450}
                     />
                   </div>
                   <div className="p-6">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="bg-gold/15 text-gold text-xs font-semibold px-3 py-1 rounded-full">
-                        {c.producer}
-                      </span>
-                      <span className="bg-navy/5 text-navy/60 text-xs px-3 py-1 rounded-full">
-                        {c.category}
-                      </span>
-                    </div>
-                    <h3 className="font-heading text-2xl font-bold text-navy">{c.name}</h3>
+                    <span className="bg-gold/15 text-gold text-xs font-semibold px-3 py-1 rounded-full">
+                      {c.brand}
+                    </span>
+                    <h3 className="font-heading text-2xl font-bold text-navy mt-3">{c.name}</h3>
                     <p className="mt-2 text-muted-foreground text-sm">{c.desc}</p>
                     <div className="mt-4 flex flex-wrap gap-3">
                       <Button
                         variant="secondary"
                         size="default"
-                        onClick={() => setSelectedCollection(c.name)}
+                        onClick={(e) => { e.stopPropagation(); setSelectedCollection(c.name); }}
                       >
                         Zobacz kolekcję
                       </Button>
-                      <Button variant="gold" size="default" asChild>
+                      <Button variant="gold" size="default" asChild onClick={(e) => e.stopPropagation()}>
                         <Link to="/kontakt">Zapytaj o produkt</Link>
                       </Button>
                     </div>

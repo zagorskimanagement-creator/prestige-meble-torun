@@ -3,15 +3,9 @@ import { FadeIn } from "@/components/FadeIn";
 import { PageHero } from "@/components/PageHero";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/useSEO";
 
 export const Route = createFileRoute("/producenci")({
-  head: () => ({
-    meta: [
-      { title: "Producenci — Prestige Meble Toruń" },
-      { name: "description", content: "Poznaj producentów mebli, z którymi współpracujemy. Gala Collezione, Sweet Sit, Fameg i wielu innych." },
-      { property: "og:title", content: "Producenci — Prestige Meble Toruń" },
-    ],
-  }),
   component: ProducenciPage,
 });
 
@@ -31,6 +25,11 @@ const producers = [
 ];
 
 function ProducenciPage() {
+  useSEO({
+    title: "Producenci — Prestige Meble Toruń",
+    description: "Poznaj producentów mebli, z którymi współpracujemy: Gala Collezione, Sweet Sit, Fameg, Krysiak, Unimeble i wielu innych. Salon meblowy Toruń.",
+  });
+
   return (
     <>
       <PageHero
@@ -53,6 +52,7 @@ function ProducenciPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-1 text-gold font-semibold text-sm hover:text-navy transition-colors"
+                    aria-label={`Strona producenta ${p.name}`}
                   >
                     Odwiedź stronę →
                   </a>

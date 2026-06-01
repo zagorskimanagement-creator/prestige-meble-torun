@@ -21,17 +21,17 @@ export function Footer() {
     <footer className="bg-navy text-cream">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center py-10 border-b border-cream/10">
-          <img src={logo} alt="Prestige Meble" className="h-20 w-20 rounded-lg" />
+          <img src={logo} alt="Prestige Meble Toruń — logo" className="h-20 w-20 rounded-lg" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 py-12">
           <div>
             <h3 className="font-heading text-lg font-semibold text-gold mb-4">Adres i godziny</h3>
-            <p className="text-cream/70 text-sm leading-relaxed">
+            <address className="not-italic text-cream/70 text-sm leading-relaxed">
               Galeria Wnętrz AMC<br />
               ul. Joachima Lelewela 33<br />
               87-100 Toruń
-            </p>
+            </address>
             <div className="mt-4 text-cream/70 text-sm leading-relaxed">
               <p>Pon – Pt: 10:00 – 18:00</p>
               <p>Sobota: 10:00 – 15:00</p>
@@ -44,13 +44,14 @@ export function Footer() {
 
           <div>
             <h3 className="font-heading text-lg font-semibold text-gold mb-4">Nawigacja</h3>
-            <div className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2">
               <Link to="/" className="text-cream/70 text-sm hover:text-gold transition-colors">Strona główna</Link>
               <Link to="/kolekcje" className="text-cream/70 text-sm hover:text-gold transition-colors">Kolekcje</Link>
               <Link to="/o-nas" className="text-cream/70 text-sm hover:text-gold transition-colors">O nas</Link>
               <Link to="/producenci" className="text-cream/70 text-sm hover:text-gold transition-colors">Producenci</Link>
               <Link to="/kontakt" className="text-cream/70 text-sm hover:text-gold transition-colors">Kontakt</Link>
-            </div>
+              <Link to="/polityka-prywatnosci" className="text-cream/50 text-xs hover:text-gold transition-colors mt-1">Polityka prywatności</Link>
+            </nav>
           </div>
 
           <div>
@@ -73,7 +74,7 @@ export function Footer() {
 
         <div className="border-t border-cream/10 py-6 text-center">
           <p className="text-cream/40 text-xs">
-            © 2025 Prestige Meble Toruń | Wszystkie prawa zastrzeżone
+            © {new Date().getFullYear()} Prestige Meble Toruń | Wszystkie prawa zastrzeżone
           </p>
         </div>
       </div>
