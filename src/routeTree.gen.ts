@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProducenciRouteImport } from './routes/producenci'
+import { Route as PolitykaPrywatnosciRouteImport } from './routes/polityka-prywatnosci'
 import { Route as ONasRouteImport } from './routes/o-nas'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as KolekcjeRouteImport } from './routes/kolekcje'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const ProducenciRoute = ProducenciRouteImport.update({
   id: '/producenci',
   path: '/producenci',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitykaPrywatnosciRoute = PolitykaPrywatnosciRouteImport.update({
+  id: '/polityka-prywatnosci',
+  path: '/polityka-prywatnosci',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ONasRoute = ONasRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/kolekcje': typeof KolekcjeRoute
   '/kontakt': typeof KontaktRoute
   '/o-nas': typeof ONasRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
   '/producenci': typeof ProducenciRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/kolekcje': typeof KolekcjeRoute
   '/kontakt': typeof KontaktRoute
   '/o-nas': typeof ONasRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
   '/producenci': typeof ProducenciRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,34 @@ export interface FileRoutesById {
   '/kolekcje': typeof KolekcjeRoute
   '/kontakt': typeof KontaktRoute
   '/o-nas': typeof ONasRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
   '/producenci': typeof ProducenciRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci'
+  fullPaths:
+    | '/'
+    | '/kolekcje'
+    | '/kontakt'
+    | '/o-nas'
+    | '/polityka-prywatnosci'
+    | '/producenci'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci'
-  id: '__root__' | '/' | '/kolekcje' | '/kontakt' | '/o-nas' | '/producenci'
+  to:
+    | '/'
+    | '/kolekcje'
+    | '/kontakt'
+    | '/o-nas'
+    | '/polityka-prywatnosci'
+    | '/producenci'
+  id:
+    | '__root__'
+    | '/'
+    | '/kolekcje'
+    | '/kontakt'
+    | '/o-nas'
+    | '/polityka-prywatnosci'
+    | '/producenci'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +104,7 @@ export interface RootRouteChildren {
   KolekcjeRoute: typeof KolekcjeRoute
   KontaktRoute: typeof KontaktRoute
   ONasRoute: typeof ONasRoute
+  PolitykaPrywatnosciRoute: typeof PolitykaPrywatnosciRoute
   ProducenciRoute: typeof ProducenciRoute
 }
 
@@ -86,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/producenci'
       fullPath: '/producenci'
       preLoaderRoute: typeof ProducenciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/polityka-prywatnosci': {
+      id: '/polityka-prywatnosci'
+      path: '/polityka-prywatnosci'
+      fullPath: '/polityka-prywatnosci'
+      preLoaderRoute: typeof PolitykaPrywatnosciRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/o-nas': {
@@ -124,17 +160,9 @@ const rootRouteChildren: RootRouteChildren = {
   KolekcjeRoute: KolekcjeRoute,
   KontaktRoute: KontaktRoute,
   ONasRoute: ONasRoute,
+  PolitykaPrywatnosciRoute: PolitykaPrywatnosciRoute,
   ProducenciRoute: ProducenciRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

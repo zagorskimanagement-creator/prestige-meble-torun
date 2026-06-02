@@ -1,18 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
+
+import { useSEO } from "@/hooks/useSEO";
+
 import heroImg from "@/assets/meble-krysiak-provance-kolekcja.jpg";
 import krysiakImg from "@/assets/meble-krysiak-cantiero-orzech-kolekcja.jpg";
 import unimebleImg from "@/assets/unimeble-boni-kolekcja.jpg";
 import zakorImg from "@/assets/zakor-ora-kolekcja.jpg";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Prestige Meble — Salon Meblowy Premium w Toruniu" },
-      { name: "description", content: "Meble premium w Toruniu. Odkryj kolekcje najlepszych producentów w Galerii Wnętrz AMC. Prestige Meble — elegancja i komfort." },
-    ],
-  }),
   component: Index,
 });
 
@@ -23,18 +20,22 @@ const collections = [
 ];
 
 const producers = [
-  "Gala Collezione", "Sweet Sit", "Aris Concept", "Unimebel",
-  "Skalik", "Zakor", "Krysiak Meble", "Swarzędz Szymański",
-  "Manufaktura Jasienica", "Paged Meble", "Fameg", "Ortus Furniture",
+  "Krysiak Meble", "Zakor", "Unimebel", "Fameg",
+  "Manufaktura Jasienica", "Paged Meble", "Sweet Sit", "Gala Collezione",
 ];
 
 function Index() {
+  useSEO({
+    title: "Prestige Meble Toruń — Salon Meblowy Premium",
+    description: "Salon meblowy premium w Toruniu. Kolekcje Krysiak, Unimeble, Zakor, Fameg, Gala Collezione i innych. Galeria Wnętrz AMC, ul. Lelewela 33.",
+  });
+
   return (
     <>
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Salon meblowy Prestige Meble" className="h-full w-full object-cover" width={1920} height={1080} />
+          <img src={heroImg} alt="Salon meblowy Prestige Meble Toruń" className="h-full w-full object-cover" width={1920} height={1080} />
           <div className="absolute inset-0 bg-navy/70" />
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -81,7 +82,7 @@ function Index() {
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={c.image}
-                      alt={c.name}
+                      alt={`Kolekcja ${c.name} — meble ${c.producer}`}
                       className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
                       loading="lazy"
                       width={800}
@@ -115,7 +116,7 @@ function Index() {
               <div className="md:w-1/2">
                 <img
                   src={zakorImg}
-                  alt="Salon Prestige Meble Toruń"
+                  alt="Salon Prestige Meble Toruń — wnętrze showroomu"
                   className="rounded-xl shadow-lg w-full aspect-[4/3] object-cover"
                   loading="lazy"
                   width={800}

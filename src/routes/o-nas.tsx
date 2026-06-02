@@ -3,6 +3,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { PageHero } from "@/components/PageHero";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/useSEO";
 import { Gem, Handshake, Briefcase } from 'lucide-react';
 import showroomImg from "@/assets/meble-krysiak-provance-kolekcja.jpg";
 import gallery1 from "@/assets/meble-krysiak-verano-kolekcja.jpg";
@@ -13,43 +14,40 @@ import col3 from "@/assets/unimeble-verdi-kolekcja.webp";
 import col4 from "@/assets/zakor-ora-kolekcja.jpg";
 
 export const Route = createFileRoute("/o-nas")({
-  head: () => ({
-    meta: [
-      { title: "O nas — Prestige Meble Toruń" },
-      { name: "description", content: "Poznaj Prestige Meble — salon meblowy premium w Galerii Wnętrz AMC w Toruniu. Jakość, doradztwo, profesjonalna obsługa." },
-      { property: "og:title", content: "O nas — Prestige Meble Toruń" },
-    ],
-  }),
   component: ONasPage,
 });
 
 const producers = [
-  "Gala Collezione", "Sweet Sit", "Aris Concept", "Unimebel",
-  "Skalik", "Zakor", "Krysiak Meble", "Swarzędz Szymański",
-  "Manufaktura Jasienica", "Paged Meble", "Fameg", "Ortus Furniture",
+  "Krysiak Meble", "Zakor", "Unimebel", "Fameg",
+  "Manufaktura Jasienica", "Paged Meble", "Sweet Sit", "Gala Collezione",
 ];
 
 const features = [
   {
     icon: <Gem className="w-6 h-6 text-gold" />,
     title: "Jakość Premium",
-    
+    desc: "Współpracujemy wyłącznie z renomowanymi producentami, którzy gwarantują najwyższą jakość wykonania i trwałość mebli.",
   },
   {
     icon: <Handshake className="w-6 h-6 text-gold" />,
     title: "Indywidualne doradztwo",
-    
+    desc: "Nasz doświadczony zespół pomoże Ci wybrać meble idealnie dopasowane do Twoich potrzeb, stylu i budżetu.",
   },
   {
     icon: <Briefcase className="w-6 h-6 text-gold" />,
     title: "Profesjonalna obsługa",
-    
+    desc: "Od pierwszej wizyty do dostawy — towarzyszymy Ci na każdym etapie i dbamy o Twój komfort zakupu.",
   },
 ];
 
 const galleryImages = [gallery1, gallery2, col1, col2, col3, col4];
 
 function ONasPage() {
+  useSEO({
+    title: "O nas — Prestige Meble Toruń",
+    description: "Poznaj Prestige Meble — salon meblowy premium w Galerii Wnętrz AMC w Toruniu. Jakość, doradztwo, profesjonalna obsługa.",
+  });
+
   return (
     <>
       <PageHero title="O nas">
@@ -62,7 +60,7 @@ function ONasPage() {
           <FadeIn>
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2">
-                <img src={showroomImg} alt="Salon Prestige Meble" className="rounded-xl shadow-lg w-full aspect-[4/3] object-cover" loading="lazy" width={1280} height={960} />
+                <img src={showroomImg} alt="Salon Prestige Meble Toruń — showroom" className="rounded-xl shadow-lg w-full aspect-[4/3] object-cover" loading="lazy" width={1280} height={960} />
               </div>
               <div className="lg:w-1/2">
                 <h2 className="font-heading text-3xl font-bold text-navy">Prestige Meble — salon z pasją</h2>
@@ -110,7 +108,7 @@ function ONasPage() {
                 <div className={`overflow-hidden rounded-xl ${i === 1 ? "row-span-2" : ""}`}>
                   <img
                     src={img}
-                    alt={`Salon Prestige Meble ${i + 1}`}
+                    alt={`Salon Prestige Meble Toruń — wnętrze ${i + 1}`}
                     className="h-full w-full object-cover hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                     width={800}

@@ -3,34 +3,29 @@ import { FadeIn } from "@/components/FadeIn";
 import { PageHero } from "@/components/PageHero";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/useSEO";
 
 export const Route = createFileRoute("/producenci")({
-  head: () => ({
-    meta: [
-      { title: "Producenci — Prestige Meble Toruń" },
-      { name: "description", content: "Poznaj producentów mebli, z którymi współpracujemy. Gala Collezione, Sweet Sit, Fameg i wielu innych." },
-      { property: "og:title", content: "Producenci — Prestige Meble Toruń" },
-    ],
-  }),
   component: ProducenciPage,
 });
 
 const producers = [
-  { name: "Gala Collezione", url: "https://www.galacollezione.com", desc: "Włoski design i ponadczasowa elegancja w każdym detalu." },
-  { name: "Sweet Sit", url: "https://www.sweetsit.pl", desc: "Wygodne i stylowe zestawy wypoczynkowe dla wymagających." },
-  { name: "Aris Concept", url: "https://www.arismeble.pl", desc: "Nowoczesne meble o wysokiej funkcjonalności i estetyce." },
-  { name: "Unimebel", url: "https://www.unimebel.pl", desc: "Solidne meble tapicerowane z wieloletnią tradycją." },
-  { name: "Skalik", url: "https://www.skalik.pl", desc: "Producent mebli drewnianych z dbałością o każdy szczegół." },
-  { name: "Zakor", url: "https://www.zakor.pl", desc: "Meble do jadalni i salonu łączące styl z trwałością." },
   { name: "Krysiak Meble", url: "https://www.meblekrysiak.pl", desc: "Polskie meble tapicerowane szyte na miarę Twoich potrzeb." },
-  { name: "Swarzędz Szymański", url: "https://www.meble-rs.pl", desc: "Tradycja stolarstwa łączona z nowoczesnym wzornictwem." },
+  { name: "Zakor", url: "https://www.zakor.pl", desc: "Meble do jadalni i salonu łączące styl z trwałością." },
+  { name: "Unimebel", url: "https://www.unimebel.pl", desc: "Solidne meble tapicerowane z wieloletnią tradycją." },
+  { name: "Fameg", url: "https://www.fameg.pl", desc: "Kultowe krzesła i meble z litego drewna bukowego." },
   { name: "Manufaktura Jasienica", url: "https://www.manufakturajasienica.pl", desc: "Rzemieślnicza precyzja i naturalne materiały w każdym meblu." },
   { name: "Paged Meble", url: "https://www.paged.pl", desc: "Innowacyjne meble giętowiowe z polskich fabryk." },
-  { name: "Fameg", url: "https://www.fameg.pl", desc: "Kultowe krzesła i meble z litego drewna bukowego." },
-  { name: "Ortus Furniture", url: "https://www.ortusfurniture.eu", desc: "Ekskluzywne meble tapicerowane najwyższej klasy." },
+  { name: "Sweet Sit", url: "https://www.sweetsit.pl", desc: "Wygodne i stylowe zestawy wypoczynkowe dla wymagających." },
+  { name: "Gala Collezione", url: "https://www.galacollezione.com", desc: "Włoski design i ponadczasowa elegancja w każdym detalu." },
 ];
 
 function ProducenciPage() {
+  useSEO({
+    title: "Producenci — Prestige Meble Toruń",
+    description: "Poznaj producentów mebli, z którymi współpracujemy: Gala Collezione, Sweet Sit, Fameg, Krysiak, Unimeble i wielu innych. Salon meblowy Toruń.",
+  });
+
   return (
     <>
       <PageHero
@@ -53,6 +48,7 @@ function ProducenciPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-1 text-gold font-semibold text-sm hover:text-navy transition-colors"
+                    aria-label={`Strona producenta ${p.name}`}
                   >
                     Odwiedź stronę →
                   </a>
