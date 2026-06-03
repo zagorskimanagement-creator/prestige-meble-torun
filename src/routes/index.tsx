@@ -26,44 +26,12 @@ const producers = [
 
 function Index() {
   useSEO({
-    title: "Prestige Meble Toruń — Salon Meblowy Premium",
-    description: "Salon meblowy premium w Toruniu. Kolekcje Krysiak, Unimeble, Zakor, Fameg, Gala Collezione i innych. Galeria Wnętrz AMC, ul. Lelewela 33.",
+    title: "Prestige Meble ToruÅ„ â€” Salon Meblowy Premium",
+    description: "Salon meblowy premium w Toruniu. Kolekcje Krysiak, Unimeble, Zakor, Fameg, Gala Collezione i innych. Galeria WnÄ™trz AMC, ul. Lelewela 33.",
   });
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroImg} alt="Salon meblowy Prestige Meble Toruń" className="h-full w-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-navy/70" />
-        </div>
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <FadeIn>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-cream leading-tight">
-              Meble, które opowiadają<br />
-              <span className="text-gold">Twoją historię</span>
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="mt-6 text-cream/70 text-lg md:text-xl">
-              Salon Premium w sercu Torunia
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.4}>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="gold" size="xl" asChild>
-                <Link to="/kolekcje">Odkryj kolekcje</Link>
-              </Button>
-              <Button variant="gold-outline" size="xl" asChild>
-                <Link to="/kontakt">Skontaktuj się</Link>
-              </Button>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-
       {/* Wyprzedaz */}
       <section className="py-10 px-4 bg-cream">
         <div className="mx-auto max-w-4xl">
@@ -83,7 +51,37 @@ function Index() {
           </FadeIn>
         </div>
       </section>
-      {/* Mini Collections */}
+
+      {/* Hero */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="Salon meblowy Prestige Meble ToruÅ„" className="h-full w-full object-cover" width={1920} height={1080} />
+          <div className="absolute inset-0 bg-navy/70" />
+        </div>
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <FadeIn>
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-cream leading-tight">
+              Meble, ktÃ³re opowiadajÄ…<br />
+              <span className="text-gold">TwojÄ… historiÄ™</span>
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="mt-6 text-cream/70 text-lg md:text-xl">
+              Salon Premium w sercu Torunia
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.4}>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="gold" size="xl" asChild>
+                <Link to="/kolekcje">Odkryj kolekcje</Link>
+              </Button>
+              <Button variant="gold-outline" size="xl" asChild>
+                <Link to="/kontakt">Skontaktuj siÄ™</Link>
+              </Button>
+            </div>
+          </FadeIn>
+        </div>
+      </section>      {/* Mini Collections */}
       <section className="py-20 px-4 bg-cream">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
@@ -91,7 +89,7 @@ function Index() {
               Nasze kolekcje
             </h2>
             <p className="mt-3 text-muted-foreground text-center max-w-xl mx-auto">
-              Odkryj wyjątkowe zestawy wypoczynkowe najlepszych producentów
+              Odkryj wyjÄ…tkowe zestawy wypoczynkowe najlepszych producentÃ³w
             </p>
           </FadeIn>
 
@@ -102,7 +100,7 @@ function Index() {
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={c.image}
-                      alt={`Kolekcja ${c.name} — meble ${c.producer}`}
+                      alt={`Kolekcja ${c.name} â€” meble ${c.producer}`}
                       className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
                       loading="lazy"
                       width={800}
@@ -121,7 +119,7 @@ function Index() {
           <FadeIn delay={0.3}>
             <div className="mt-10 text-center">
               <Button variant="gold" size="lg" asChild>
-                <Link to="/kolekcje">Zobacz wszystkie kolekcje →</Link>
+                <Link to="/kolekcje">Zobacz wszystkie kolekcje â†’</Link>
               </Button>
             </div>
           </FadeIn>
@@ -136,7 +134,7 @@ function Index() {
               <div className="md:w-1/2">
                 <img
                   src={zakorImg}
-                  alt="Salon Prestige Meble Toruń — wnętrze showroomu"
+                  alt="Salon Prestige Meble ToruÅ„ â€” wnÄ™trze showroomu"
                   className="rounded-xl shadow-lg w-full aspect-[4/3] object-cover"
                   loading="lazy"
                   width={800}
@@ -146,11 +144,11 @@ function Index() {
               <div className="md:w-1/2">
                 <h2 className="font-heading text-3xl font-bold text-navy">O nas</h2>
                 <p className="mt-4 text-muted-foreground leading-relaxed">
-                  Prestige Meble to salon meblowy premium w Galerii Wnętrz AMC w Toruniu. Od lat pomagamy
-                  klientom tworzyć wyjątkowe wnętrza, oferując meble najlepszych producentów.
+                  Prestige Meble to salon meblowy premium w Galerii WnÄ™trz AMC w Toruniu. Od lat pomagamy
+                  klientom tworzyÄ‡ wyjÄ…tkowe wnÄ™trza, oferujÄ…c meble najlepszych producentÃ³w.
                 </p>
                 <Button variant="gold" size="lg" className="mt-6" asChild>
-                  <Link to="/o-nas">Dowiedz się więcej →</Link>
+                  <Link to="/o-nas">Dowiedz siÄ™ wiÄ™cej â†’</Link>
                 </Button>
               </div>
             </div>
@@ -174,7 +172,7 @@ function Index() {
           <FadeIn delay={0.2}>
             <div className="mt-8 text-center">
               <Button variant="gold-outline" size="default" asChild>
-                <Link to="/producenci">Wszyscy producenci →</Link>
+                <Link to="/producenci">Wszyscy producenci â†’</Link>
               </Button>
             </div>
           </FadeIn>
@@ -189,10 +187,10 @@ function Index() {
               Zapraszamy do salonu w Toruniu
             </h2>
             <p className="mt-4 text-cream/60">
-              Galeria Wnętrz AMC, ul. Joachima Lelewela 33
+              Galeria WnÄ™trz AMC, ul. Joachima Lelewela 33
             </p>
             <Button variant="gold" size="xl" className="mt-8" asChild>
-              <Link to="/kontakt">Skontaktuj się</Link>
+              <Link to="/kontakt">Skontaktuj siÄ™</Link>
             </Button>
           </FadeIn>
         </div>
