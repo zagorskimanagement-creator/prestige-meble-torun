@@ -3,11 +3,11 @@ import { useState } from "react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { to: "/kolekcje" as const, label: "Kolekcje" },
-  { to: "/o-nas" as const, label: "O nas" },
-  { to: "/producenci" as const, label: "Producenci" },
-  { to: "/kontakt" as const, label: "Kontakt" },
-  { to: "/wyprzedaz" as const, label: "🔥 Wyprzedaż" },
+  { to: "/kolekcje" as const, label: "Kolekcje", sale: false },
+  { to: "/o-nas" as const, label: "O nas", sale: false },
+  { to: "/producenci" as const, label: "Producenci", sale: false },
+  { to: "/kontakt" as const, label: "Kontakt", sale: false },
+  { to: "/wyprzedaz" as const, label: "Wyprzedaż", sale: true },
 ];
 
 export function Navbar() {
@@ -25,6 +25,21 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
+              if (link.sale) {
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 border-2 ${
+                      isActive
+                        ? "border-red-500 text-red-400"
+                        : "border-red-500 text-red-400 hover:bg-red-500/10"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              }
               return (
                 <Link
                   key={link.to}
@@ -80,7 +95,11 @@ export function Navbar() {
                   to={link.to}
                   onClick={() => setIsOpen(false)}
                   className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                    isActive ? "text-gold bg-navy-light" : "text-cream/80 hover:text-gold hover:bg-navy-light"
+                    link.sale
+                      ? "text-red-400 font-bold hover:bg-navy-light"
+                      : isActive
+                      ? "text-gold bg-navy-light"
+                      : "text-cream/80 hover:text-gold hover:bg-navy-light"
                   }`}
                 >
                   {link.label}
