@@ -7,6 +7,7 @@ const navLinks = [
   { to: "/o-nas" as const, label: "O nas" },
   { to: "/producenci" as const, label: "Producenci" },
   { to: "/kontakt" as const, label: "Kontakt" },
+  { to: "/wyprzedaz" as const, label: "🔥 Wyprzedaż" },
 ];
 
 export function Navbar() {
