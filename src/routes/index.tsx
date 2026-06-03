@@ -63,6 +63,26 @@ function Index() {
         </div>
       </section>
 
+
+      {/* Wyprzedaz */}
+      <section className="py-10 px-4 bg-cream">
+        <div className="mx-auto max-w-4xl">
+          <FadeIn>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-navy text-center mb-6">
+              Wyprzeda¿
+            </h2>
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src="/fameg-wyprzedaz.jpg"
+                alt="Fameg -21% rabat na wszystko, promocja od 01.03 do 21.03"
+                className="w-full h-auto object-cover"
+                width={1024}
+                height={642}
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
       {/* Mini Collections */}
       <section className="py-20 px-4 bg-cream">
         <div className="mx-auto max-w-7xl">
