@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
+import { Testimonials } from "@/components/Testimonials";
+import { FAQ } from "@/components/FAQ";
+import { ContactSection } from "@/components/ContactSection";
 
 import { useSEO } from "@/hooks/useSEO";
 
@@ -64,7 +67,7 @@ function Index() {
       </section>
 
       {/* Mini Collections */}
-      <section className="py-20 px-4 bg-cream">
+      <section className="py-20 px-4 bg-cream" id="oferta">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-navy text-center">
@@ -161,22 +164,14 @@ function Index() {
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="py-20 px-4 bg-navy">
-        <div className="mx-auto max-w-3xl text-center">
-          <FadeIn>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-cream">
-              Zapraszamy do salonu w Toruniu
-            </h2>
-            <p className="mt-4 text-cream/60">
-              Galeria Wnętrz AMC, ul. Joachima Lelewela 33
-            </p>
-            <Button variant="gold" size="xl" className="mt-8" asChild>
-              <Link to="/kontakt">Skontaktuj się</Link>
-            </Button>
-          </FadeIn>
-        </div>
-      </section>
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* FAQ */}
+      <FAQ />
+
+      {/* Contact Section */}
+      <ContactSection />
     </>
   );
 }
