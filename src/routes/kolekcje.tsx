@@ -32,12 +32,12 @@ const producenci: Producent[] = [
     slug: "krysiak",
     nazwa: "Krysiak Meble",
     opis: "Polskie meble tapicerowane szyte na miarę twoich potrzeb.",
-    okladka: `${BASE}/1_Krysiak_Meble/cantiero/CAN.011.min__3.jpg`,
+    okladka: `${BASE}/1_Krysiak_Meble/cantiero/CANTIERO_aranzI_DSC_6857v2-1.jpg`,
     kolekcje: [
       {
         slug: "cantiero",
         nazwa: "Cantiero",
-        okladka: `${BASE}/1_Krysiak_Meble/cantiero/CAN.011.min__3.jpg`,
+        okladka: `${BASE}/1_Krysiak_Meble/cantiero/CANTIERO_aranzI_DSC_6857v2-1.jpg`,
         zdjecia: [
           "CAN.011.min__3.jpg","CAN.030.03.min__2.jpg","CAN.031.min__4.jpg",
           "CAN.041.min__2.jpg","CAN.050.min__3.jpg","CAN.070.min_.jpg",
@@ -350,7 +350,7 @@ const producenci: Producent[] = [
     slug: "fameg",
     nazwa: "Fameg",
     opis: "Krzesła i stoły jadalniane z polskiego drewna — ponadczasowy design.",
-    okladka: `${BASE}/4_Fameg/finn/finn_a-1609_tap_01_2.jpg`,
+    okladka: `${BASE}/4_Fameg/arch/2021_08_szum_i_rosa_1885.jpg`,
     kolekcje: [
       { slug: "18-n", nazwa: "18-N", okladka: `${BASE}/4_Fameg/18-n/a-18_n_01_2.jpg`,
         zdjecia: ["a-18_5_l.jpg","a-18_n_01_2.jpg","a-18_n_02.jpg","a-18_n_l_1.jpg","a-18_n_w.jpg","a-18_tap_l.jpg","b-18_tw_l.jpg","bst-18_tw_l.jpg"].map(f=>`${BASE}/4_Fameg/18-n/${f}`) },
@@ -370,7 +370,7 @@ const producenci: Producent[] = [
         zdjecia: ["cleo_a-1602_1_1.jpg","cleo_a-1602_2_1.jpg"].map(f=>`${BASE}/4_Fameg/cleo/${f}`) },
       { slug: "cleo-5", nazwa: "Cleo 5", okladka: `${BASE}/4_Fameg/cleo-5/cleo_a-1605_1.jpg`,
         zdjecia: ["cleo_a-1605_1-1_2.jpg","cleo_a-1605_1.jpg","cleo_a-1605_2.jpg","cleo_a-1605_3_2.jpg","cleo_a-1605_4_1.jpg"].map(f=>`${BASE}/4_Fameg/cleo-5/${f}`) },
-      { slug: "finn", nazwa: "Finn", okladka: `${BASE}/4_Fameg/finn/finn_a-1609_tap_01_2.jpg`,
+      { slug: "finn", nazwa: "Finn", okladka: `${BASE}/4_Fameg/arch/2021_08_szum_i_rosa_1885.jpg`,
         zdjecia: ["finn_a-1609_tap_01_2.jpg","finn_a-1609_tap_02_2.jpg","finn_a-1609_tap_03_2.jpg","finn_a-1609_tap_04.jpg","finn_a-1609_tap_l.jpg","finn_bst-1609_1_61_l.jpg","finn_bst-1609_1_tw_l.jpg"].map(f=>`${BASE}/4_Fameg/finn/${f}`) },
       { slug: "nord", nazwa: "Nord A-2320", okladka: `${BASE}/4_Fameg/nord-a-2320/nord_a-2320_tw_01_2.jpg`,
         zdjecia: ["nord-a-2320_tw_02_1.jpg","nord_a-2320_tw_01_2.jpg","nord_a-2320_tw_l_1.jpg","nord_bst-2320_tw.jpg"].map(f=>`${BASE}/4_Fameg/nord-a-2320/${f}`) },
