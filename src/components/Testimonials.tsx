@@ -74,23 +74,6 @@ export function Testimonials() {
             </FadeIn>
           ))}
         </div>
-
-        <FadeIn delay={0.3}>
-          <div className="mt-10 text-center">
-            <a
-              href="https://maps.google.com/?cid=2451634249227884182"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gold font-semibold hover:text-navy transition-colors"
-              aria-label="Zobacz więcej opinii o Prestige Meble w Google Maps"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-              </svg>
-              Zobacz więcej opinii w Google →
-            </a>
-          </div>
-        </FadeIn>
       </div>
     </section>
   );
