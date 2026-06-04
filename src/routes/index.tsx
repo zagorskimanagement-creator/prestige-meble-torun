@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
-import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { ContactSection } from "@/components/ContactSection";
 
@@ -163,9 +162,6 @@ function Index() {
           </FadeIn>
         </div>
       </section>
-
-      {/* Testimonials */}
-      <Testimonials />
 
       {/* FAQ */}
       <FAQ />
